@@ -82,7 +82,6 @@ sample response:
             "applied": false,
             "contact_email": null,
             "phone_number": null,
-            "email": null,
             "posting_url": null,
             "created_at": "2015-03-07T13:21:12.592Z",
             "updated_at": "2015-03-07T13:21:12.592Z"
@@ -96,7 +95,6 @@ sample response:
             "applied": false,
             "contact_email": null,
             "phone_number": null,
-            "email": null,
             "posting_url": null,
             "created_at": "2015-03-07T13:26:20.245Z",
             "updated_at": "2015-03-07T13:26:20.245Z"
@@ -148,8 +146,6 @@ data:
 ```
 {
     "listing": {
-        "company_id": 2,
-        "contact_id": 3,
         "job_title": "Front End Engineer",
         "applied": false,
         "contact_email": "sergey@google.com",
@@ -173,7 +169,6 @@ response:
         "applied": false,
         "contact_email": "hr@facebook.com",
         "phone_number": null,
-        "email": "hr@google.com",
         "posting_url": "http://www.google.com/jobs/job/1234",
         "created_at": "2015-03-07T13:54:38.501Z",
         "updated_at": "2015-03-07T14:47:41.935Z"
@@ -191,13 +186,11 @@ data
 ```
 {
     "listing": {
-        "job_title": "Junior Ruby Developer,
+        "job_title": "Junior Ruby Developer",
         "applied": false,
         "contact_email": "hr@facebook.com,
         "phone_number": "18005556677,
-        "email": "hr@facebook.com",
         "posting_url": "https://www.facebook.com/jobs/234",
-        "interview_id": null,
         "company_name": "Facebook",
         "notes": null
     }
@@ -215,7 +208,47 @@ response
         "applied": false,
         "contact_email": "hr@facebook.com",
         "phone_number": "18005556677",
-        "email": "hr@facebook.com",
+        "posting_url": "https://www.facebook.com/jobs/234",
+        "created_at": "2015-03-07T18:37:30.543Z",
+        "updated_at": "2015-03-07T18:37:30.543Z",
+        "interview_id": null,
+        "company_name": "Facebook",
+        "notes": null
+    }
+}
+```
+
+POST AN INTERVIEW
+-----------------
+`STATUS 201 CREATED`
+from
+`POST [domain]/users/listings`
+
+data:
+```
+{
+    "interview": {
+        "follow_up_email": null,
+        "interview_time": null,
+        "interviewtype": null,
+        "interviewed": false,
+        "notes": null,
+        "status": null
+    }
+}
+```
+
+response:
+```
+{
+    "listing": {
+        "id": 2,
+        "user_id": 1,
+        "contact_id": null,
+        "job_title": "Junior Ruby Developer",
+        "applied": false,
+        "contact_email": "hr@facebook.com",
+        "phone_number": "18005556677",
         "posting_url": "https://www.facebook.com/jobs/234",
         "created_at": "2015-03-07T18:37:30.543Z",
         "updated_at": "2015-03-07T18:37:30.543Z",

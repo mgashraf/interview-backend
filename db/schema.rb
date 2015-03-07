@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307175435) do
+ActiveRecord::Schema.define(version: 20150307194108) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20150307175435) do
     t.boolean  "applied",       default: false
     t.string   "contact_email"
     t.string   "phone_number"
-    t.string   "email"
     t.string   "posting_url"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false

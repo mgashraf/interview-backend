@@ -56,7 +56,7 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-      params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :email, :posting_url, :interview_id, :company_name, :notes)
+      params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :posting_url, :interview_id, :company_name, :notes)
     end
 
 end
