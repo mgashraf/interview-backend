@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :resumes
+  has_many :interviews
+  has_many :listings
+
 before_save :ensure_authentication_token
 
 def ensure_authentication_token
@@ -13,7 +17,9 @@ def ensure_authentication_token
   end
 
   def as_json(opts={})
-    super(:only => [:email, :authentication_token])
+    options = {:only => [:email, :authentication_token]}
+    options.merge!(opts)
+    super(options)
   end
 
   private

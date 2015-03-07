@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  before_action :authenticate_user_from_token!
+  
   def create
   end
 
