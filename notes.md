@@ -11,3 +11,13 @@ get users/:id => working
     }
 }
 ```
+=================================
+heroku
+```
+{
+    "user": {
+        "email": "dylan.dechant@gmail.com",
+        "authentication_token": "7oGuJoi31SFamA55TFGc"
+    }
+}
+```

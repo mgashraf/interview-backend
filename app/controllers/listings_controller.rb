@@ -47,6 +47,17 @@ class ListingsController < ApplicationController
     def set_listings
       @listings = @user.listings.all
     end
+
+    def listing_params
+      params.require(:listing).permit(:name, :age)
+    end
+
+    listings {
+      name: "dlyan",
+      age: 34,
+      pets: "a duck"
+    }
+
 end
 
 # SCHEMA THINGS UPDATE AS NEEDED
