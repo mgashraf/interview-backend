@@ -6,7 +6,7 @@ Lets try and get these right this time, right Dane?!?
 
 
 Important - Domain `https://interviewtracker-api.herokuapp.com`
-
+NOTE: can pass `auth_token` in Header data
 
 CREATE USER
 -----------
