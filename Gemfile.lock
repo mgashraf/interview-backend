@@ -119,6 +119,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.3)
+      pry (>= 0.9.10)
     rack (1.6.0)
     rack-cors (0.3.1)
     rack-test (0.6.3)
@@ -211,6 +213,7 @@ DEPENDENCIES
   paperclip
   pg
   pry
+  pry-rails
   rack-cors
   rails (= 4.2.0)
   rails_12factor

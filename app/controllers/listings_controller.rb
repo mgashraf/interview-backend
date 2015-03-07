@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+
   before_action :authenticate_user_from_token!
   before_action :set_user, :set_listings
   
@@ -18,6 +19,9 @@ class ListingsController < ApplicationController
   end
 
   def index
+    @user = current_user
+    @listings = set_listings
+    binding.pry
     if @listings.count > 0
       render json: { :listings => @listings }, status: :ok
     else
@@ -26,7 +30,9 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = @user.listing.find(params[:lid])
+    @user = current_user
+    @listing = @user.listings.find(params[:lid])
+    binding.pry
     if @listing
       render json: { :listing => @listing }, status: :ok
     else
@@ -37,7 +43,7 @@ class ListingsController < ApplicationController
   private
 
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     def set_listings
