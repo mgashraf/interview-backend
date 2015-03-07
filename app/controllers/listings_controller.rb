@@ -45,7 +45,7 @@ class ListingsController < ApplicationController
     end
 end
 
-
+# SCHEMA THINGS UPDATE AS NEEDED
 # t.integer  "user_id"
 # t.integer  "company_id"
 # t.integer  "contact_id"
