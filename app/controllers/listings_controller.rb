@@ -59,7 +59,6 @@ class ListingsController < ApplicationController
       params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :email, :posting_url, :contact_id, :company_id)
     end
 
-
 end
 
 # SCHEMA THINGS UPDATE AS NEEDED
