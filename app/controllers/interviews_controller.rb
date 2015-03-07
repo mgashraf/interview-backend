@@ -6,12 +6,12 @@ class InterviewsController < ApplicationController
     @user = set_user
     @interview = @user.interviews.new(:listing_id => params[:lid],
                                       :position_title => @listing.job_title,
-                                      :follow_up_email => params[:interview][:follow_up_email],
-                                      :interview_time => params[:interview][:interview_time],
-                                      :interviewtype => params[:interview][:interviewtype],
-                                      :notes => params[:interview][:notes],
-                                      :interviewed => params[:interview][:interviewed],
-                                      :status => params[:interview][:status])
+                                      :follow_up_email => params[:interviews][:follow_up_email],
+                                      :interview_time => params[:interviews][:interview_time],
+                                      :interviewtype => params[:interviews][:interviewtype],
+                                      :notes => params[:interviews][:notes],
+                                      :interviewed => params[:interviews][:interviewed],
+                                      :status => params[:interviews][:status])
     if @interview.save
       render json: { :interview => @interview }, status: :ok
     else
@@ -58,7 +58,7 @@ class InterviewsController < ApplicationController
     end
 
     def set_listing
-      @listing = List.find(params[:lid])  
+      @listing = Listing.find(params[:lid])  
     end
 
     def set_interview

@@ -35,7 +35,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def show
+  def show   
     @user = current_user
     @listing = @user.listings.find(params[:lid])
     if @listing
