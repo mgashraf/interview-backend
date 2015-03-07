@@ -2,8 +2,16 @@ class InterviewsController < ApplicationController
   before_action :authenticate_user_from_token!
   
   def create
+    @listing = set_listing
     @user = set_user
-    @interview = @user.interviews.new(:listing_id => params[:lid])
+    @interview = @user.interviews.new(:listing_id => params[:lid],
+                                      :position_title => @listing.job_title,
+                                      :follow_up_email => params[:interviews][:follow_up_email],
+                                      :interview_time => params[:interviews][:interview_time],
+                                      :interviewtype => params[:interviews][:interviewtype],
+                                      :notes => params[:interviews][:notes],
+                                      :interviewed => params[:interviews][:interviewed],
+                                      :status => params[:interviews][:status])
     if @interview.save
       render json: { :interview => @interview }, status: :ok
     else
@@ -47,6 +55,10 @@ class InterviewsController < ApplicationController
   private
     def set_user
       @user = current_user
+    end
+
+    def set_listing
+      @listing = Listing.find(params[:lid])  
     end
 
     def set_interview
