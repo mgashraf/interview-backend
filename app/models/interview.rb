@@ -1,3 +1,4 @@
 class Interview < ActiveRecord::Base
-  belongs_to :user, :listing
+  belongs_to :user
+  belongs_to :listing
 end
