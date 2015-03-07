@@ -84,20 +84,30 @@ sample response:
             "phone_number": null,
             "posting_url": null,
             "created_at": "2015-03-07T13:21:12.592Z",
-            "updated_at": "2015-03-07T13:21:12.592Z"
+            "updated_at": "2015-03-07T13:21:12.592Z",
+            "submitted_resume": false,
+            "date_resume_submitted": null,
+            "opportunity_ranking": 4,
+            "opportunity_description": "Great small hot new social web startup",
+            "company_summary": "the owner mark seems like a nice guy, they like likes.",
+            "lead_source": "Was referred by CTO, forgot his name :("
         },
         {
             "user_id": 2,
             "id": 3,
-            "company_id": null,
-            "contact_id": null,
             "job_title": null,
             "applied": false,
             "contact_email": null,
             "phone_number": null,
             "posting_url": null,
             "created_at": "2015-03-07T13:26:20.245Z",
-            "updated_at": "2015-03-07T13:26:20.245Z"
+            "updated_at": "2015-03-07T13:26:20.245Z",
+            "submitted_resume": false,
+            "date_resume_submitted": null,
+            "opportunity_ranking": 4,
+            "opportunity_description": "Great small hot new social web startup",
+            "company_summary": "the owner mark seems like a nice guy, they like likes.",
+            "lead_source": "Was referred by CTO, forgot his name :("
         }
     ]
 }
@@ -122,16 +132,19 @@ sample response
     "listing": {
         "user_id": 1,
         "id": 1,
-        "company_id": 2,
-        "contact_id": 3,
         "job_title": "Front End Engineer",
         "applied": false,
         "contact_email": "sergey@google.com",
         "phone_number": null,
-        "email": "hr@google.com",
         "posting_url": "http://www.google.com/jobs/job/1234",
         "created_at": "2015-03-07T13:54:38.501Z",
-        "updated_at": "2015-03-07T13:54:38.501Z"
+        "updated_at": "2015-03-07T13:54:38.501Z",
+        "submitted_resume": false,
+        "date_resume_submitted": null,
+        "opportunity_ranking": 4,
+        "opportunity_description": "Great small hot new social web startup",
+        "company_summary": "the owner mark seems like a nice guy, they like likes.",
+        "lead_source": "Was referred by CTO, forgot his name :("
     }
 }
 ```
@@ -151,7 +164,13 @@ data:
         "contact_email": "sergey@google.com",
         "phone_number": null,
         "email": "hr@google.com",
-        "posting_url": "http://www.google.com/jobs/job/1234"
+        "posting_url": "http://www.google.com/jobs/job/1234",
+        "submitted_resume": false,
+        "date_resume_submitted": null,
+        "opportunity_ranking": 4,
+        "opportunity_description": "Great small hot new social web startup",
+        "company_summary": "the owner mark seems like a nice guy, they like likes.",
+        "lead_source": "Was referred by CTO, forgot his name :("
     }
 }
 ```
@@ -172,6 +191,12 @@ response:
         "posting_url": "http://www.google.com/jobs/job/1234",
         "created_at": "2015-03-07T13:54:38.501Z",
         "updated_at": "2015-03-07T14:47:41.935Z"
+        "submitted_resume": false,
+        "date_resume_submitted": null,
+        "opportunity_ranking": 4,
+        "opportunity_description": "Great small hot new social web startup",
+        "company_summary": "the owner mark seems like a nice guy, they like likes.",
+        "lead_source": "Was referred by CTO, forgot his name :("
     }
 }
 ```
@@ -192,7 +217,13 @@ data
         "phone_number": "18005556677,
         "posting_url": "https://www.facebook.com/jobs/234",
         "company_name": "Facebook",
-        "notes": null
+        "notes": null,
+        "submitted_resume": false,
+        "date_resume_submitted": null,
+        "opportunity_ranking": 4,
+        "opportunity_description": "Great small hot new social web startup",
+        "company_summary": "the owner mark seems like a nice guy, they like likes.",
+        "lead_source": "Was referred by CTO, forgot his name :("
     }
 }
 ```
@@ -213,7 +244,13 @@ response
         "updated_at": "2015-03-07T18:37:30.543Z",
         "interview_id": null,
         "company_name": "Facebook",
-        "notes": null
+        "notes": null,
+        "submitted_resume": false,
+        "date_resume_submitted": null,
+        "opportunity_ranking": 4,
+        "opportunity_description": "Great small hot new social web startup",
+        "company_summary": "the owner mark seems like a nice guy, they like likes.",
+        "lead_source": "Was referred by CTO, forgot his name :("
     }
 }
 ```
@@ -254,7 +291,13 @@ response:
         "updated_at": "2015-03-07T18:37:30.543Z",
         "interview_id": null,
         "company_name": "Facebook",
-        "notes": null
+        "notes": null,
+        "submitted_resume": false,
+        "date_resume_submitted": null,
+        "opportunity_ranking": 4,
+        "opportunity_description": "Great small hot new social web startup",
+        "company_summary": "the owner mark seems like a nice guy, they like likes.",
+        "lead_source": "Was referred by CTO, forgot his name :("
     }
 }
 ```

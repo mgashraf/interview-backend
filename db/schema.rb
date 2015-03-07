@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307194108) do
+ActiveRecord::Schema.define(version: 20150307201905) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -44,15 +44,21 @@ ActiveRecord::Schema.define(version: 20150307194108) do
     t.integer  "user_id"
     t.integer  "contact_id"
     t.string   "job_title"
-    t.boolean  "applied",       default: false
+    t.boolean  "applied",                 default: false
     t.string   "contact_email"
     t.string   "phone_number"
     t.string   "posting_url"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "interview_id"
     t.string   "company_name"
     t.text     "notes"
+    t.boolean  "submitted_resume",        default: false
+    t.datetime "date_resume_submitted"
+    t.integer  "opportunity_ranking",     default: 0
+    t.text     "opportunity_description"
+    t.text     "company_summary"
+    t.string   "lead_source"
   end
 
   create_table "resumes", force: :cascade do |t|

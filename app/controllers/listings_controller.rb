@@ -5,9 +5,10 @@ class ListingsController < ApplicationController
   
   def create
     listing = params[:listing]
-    @listing = @user.listings.new(:user_id => @user.id, :job_title => listing[:title], 
-                          :posting_url => listing[:url], :email => listing[:email],
-                          :contact_email => listing[:contact_email], :phone_number => listing[:phone_number])
+    # binding.pry
+    @listing = @user.listings.new(:user_id => @user.id, :job_title => listing[:job_title], 
+                          :posting_url => listing[:url], :contact_email => listing[:contact_email],
+                          :phone_number => listing[:phone_number])
     if @listing.save
       render json: { :listing => @listing }, status: :created
     else
