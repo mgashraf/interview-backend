@@ -56,14 +56,12 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-      params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :email, :posting_url, :contact_id, :company_id)
+      params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :email, :posting_url, :interview_id, :company_name, :notes)
     end
 
 end
-
-# SCHEMA THINGS UPDATE AS NEEDED
+# create_table "listings", force: :cascade do |t|
 # t.integer  "user_id"
-# t.integer  "company_id"
 # t.integer  "contact_id"
 # t.string   "job_title"
 # t.boolean  "applied",       default: false
@@ -72,4 +70,7 @@ end
 # t.string   "email"
 # t.string   "posting_url"
 # t.datetime "created_at",                    null: false
-# t.datetime "updated_at",
+# t.datetime "updated_at",                    null: false
+# t.integer  "interview_id"
+# t.string   "company_name"
+# t.text     "notes"

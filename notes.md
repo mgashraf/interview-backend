@@ -7,7 +7,7 @@ get users/:id => working
 {
     "user": {
         "email": "testuser@gmail.com",
-        "authentication_token": "MMzeMpVTKS4o_gxMoTkb"
+        "authentication_token": "SJDKq-stMaZ-imVCpbuz"
     }
 }
 ```

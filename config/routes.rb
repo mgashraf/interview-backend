@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # resources :resumes
 
   # ROUTES FOR INTERVIEWS
-  post 'users/interviews', to: 'interviews#create'
+  post 'users/listings/:lid/interviews', to: 'interviews#create'
   patch 'users/interviews/:iid', to: 'interviews#edit'
   get 'users/interviews', to: 'interviews#index'
   get 'users/interviews/:iid', to: 'interviews#show'

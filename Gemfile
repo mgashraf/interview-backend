@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-
+  gem 'proxylocal'
   gem 'better_errors'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
