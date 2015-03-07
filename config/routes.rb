@@ -7,27 +7,27 @@ Rails.application.routes.draw do
   # resources :resumes
 
   # ROUTES FOR INTERVIEWS
-  post 'users/:id/interviews', to: 'interviews#create'
-  patch 'users/:id/interviews/:iid', to: 'interviews#edit'
-  get 'users/:id/interviews', to: 'interviews#index'
-  get 'users/:id/interviews/:iid', to: 'interviews#show'
-  delete 'users/:id/interviews/:iid', to: 'interviews#destroy'
+  post 'users/interviews', to: 'interviews#create'
+  patch 'users/interviews/:iid', to: 'interviews#edit'
+  get 'users/interviews', to: 'interviews#index'
+  get 'users/interviews/:iid', to: 'interviews#show'
+  delete 'users/interviews/:iid', to: 'interviews#destroy'
 
   # ROUTES FOR LISTINGS
-  post 'users/:id/listings', to: 'listings#create'
-  patch 'users/:id/listings/:lid', to: 'listings#edit'
-  get 'users/:id/listings', to: 'listings#index'
-  get 'users/:id/listings/:lid', to: 'listings#show'
-  delete 'users/:id/listings/', to: 'listings#destroy'
+  post 'users/listings', to: 'listings#create'
+  patch 'users/listings/:lid', to: 'listings#edit'
+  get 'users/listings', to: 'listings#index'
+  get 'users/listings/:lid', to: 'listings#show'
+  delete 'users/listings/', to: 'listings#destroy'
 
   # ROUTES FOR RESUMES
-  post 'users/:id/resumes', to: 'resumes#create'
-  get 'users/:id/resumes', to: 'resumes#index'
-  get 'users/:id/resumes/:rid', to: 'resumes#show'
-  delete 'users/:id/resumes/:rid', to: 'resumes#destroy'
+  post 'users/resumes', to: 'resumes#create'
+  get 'users/resumes', to: 'resumes#index'
+  get 'users/resumes/:rid', to: 'resumes#show'
+  delete 'users/resumes/:rid', to: 'resumes#destroy'
 
   # ADD LONE ROUTE FOR USERS :(
-  get '/users/:id', to: 'users#show'
+  get '/user', to: 'users#show'
 
   #get ':username', to: 'users#show', as: :user
   
