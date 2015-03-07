@@ -11,7 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218011657) do
+ActiveRecord::Schema.define(version: 20150307054145) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.integer  "zipcode"
+    t.integer  "state"
+    t.string   "phone_number"
+    t.string   "url"
+    t.string   "hr_email"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "contact_id"
+    t.integer  "user_id"
+    t.string   "position_title"
+    t.string   "follow_up_email"
+    t.datetime "interview_time"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.integer  "contact_id"
+    t.string   "job_title"
+    t.boolean  "applied",       default: false
+    t.string   "contact_email"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "posting_url"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'paperclip'
+# Amazon S3 for file sharing
+gem 'aws-sdk'
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -38,6 +41,8 @@ group :development, :test do
   gem 'sqlite3'
 
   gem 'pry'
+
+  gem 'pry-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

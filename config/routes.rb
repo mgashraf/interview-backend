@@ -1,6 +1,36 @@
 Rails.application.routes.draw do
+
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions"}
-  get '/games/:id', to: 'game#show'
+  
+  # resources :interviews, only: [:index, :show, :edit]
+  # resources :listings
+  # resources :resumes
+
+  # ROUTES FOR INTERVIEWS
+  post 'users/interviews', to: 'interviews#create'
+  patch 'users/interviews/:iid', to: 'interviews#edit'
+  get 'users/interviews', to: 'interviews#index'
+  get 'users/interviews/:iid', to: 'interviews#show'
+  delete 'users/interviews/:iid', to: 'interviews#destroy'
+
+  # ROUTES FOR LISTINGS
+  post 'users/listings', to: 'listings#create'
+  patch 'users/listings/:lid', to: 'listings#edit'
+  get 'users/listings', to: 'listings#index'
+  get 'users/listings/:lid', to: 'listings#show'
+  delete 'users/listings/', to: 'listings#destroy'
+
+  # ROUTES FOR RESUMES
+  post 'users/resumes', to: 'resumes#create'
+  get 'users/resumes', to: 'resumes#index'
+  get 'users/resumes/:rid', to: 'resumes#show'
+  delete 'users/resumes/:rid', to: 'resumes#destroy'
+
+  # ADD LONE ROUTE FOR USERS :(
+  get '/user', to: 'users#show'
+
+  #get ':username', to: 'users#show', as: :user
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
