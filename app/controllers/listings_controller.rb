@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   before_action :set_user, :set_listings
   
   def create
-    listing = JSON.parse(params[:listing])
+    listing = params[:listing]
     @listing = @user.listings.new(:user_id => @user.id, :job_title => listing[:title], 
                           :posting_url => listing[:url], :email => listing[:email],
                           :contact_email => listing[:contact_email], :phone_number => listing[:phone_number])

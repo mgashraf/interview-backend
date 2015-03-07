@@ -106,6 +106,7 @@ sample response:
 ```
 
 GET ONE LISTING
+---------------
 `STATUS 200 OK`
 from
 `GET [domain]/users/listings/[:lid]`
@@ -138,6 +139,7 @@ sample response
 ```
 
 EDIT LISTING
+-------------
 `STATUS 200 OK`
 from
 `PATCH [domain]/users/listings/[:lid]`
@@ -175,6 +177,51 @@ response:
         "posting_url": "http://www.google.com/jobs/job/1234",
         "created_at": "2015-03-07T13:54:38.501Z",
         "updated_at": "2015-03-07T14:47:41.935Z"
+    }
+}
+```
+
+POST A LISTING
+--------------
+`STATUS 201 CREATED`
+from
+`POST [domain]/users/listings`
+
+data
+```
+{
+    "listing": {
+        "job_title": "Junior Ruby Developer,
+        "applied": false,
+        "contact_email": "hr@facebook.com,
+        "phone_number": "18005556677,
+        "email": "hr@facebook.com",
+        "posting_url": "https://www.facebook.com/jobs/234",
+        "interview_id": null,
+        "company_name": "Facebook",
+        "notes": null
+    }
+}
+```
+
+response
+```
+{
+    "listing": {
+        "id": 2,
+        "user_id": 1,
+        "contact_id": null,
+        "job_title": "Junior Ruby Developer",
+        "applied": false,
+        "contact_email": "hr@facebook.com",
+        "phone_number": "18005556677",
+        "email": "hr@facebook.com",
+        "posting_url": "https://www.facebook.com/jobs/234",
+        "created_at": "2015-03-07T18:37:30.543Z",
+        "updated_at": "2015-03-07T18:37:30.543Z",
+        "interview_id": null,
+        "company_name": "Facebook",
+        "notes": null
     }
 }
 ```
