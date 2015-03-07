@@ -51,6 +51,10 @@ class ListingsController < ApplicationController
       @user = current_user
     end
 
+    def set_listing
+      @listing = Listing.find(params[:lid])
+    end
+
     def set_listings
       @listings = @user.listings.all
     end
