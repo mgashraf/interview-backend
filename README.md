@@ -259,7 +259,7 @@ POST AN INTERVIEW
 -----------------
 `STATUS 201 CREATED`
 from
-`POST [domain]/users/listings`
+`POST [domain]/users/listings/[:lid]/intervews`
 
 data:
 ```

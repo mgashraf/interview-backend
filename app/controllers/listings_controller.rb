@@ -8,7 +8,12 @@ class ListingsController < ApplicationController
     # binding.pry
     @listing = @user.listings.new(:user_id => @user.id, :job_title => listing[:job_title], 
                           :posting_url => listing[:url], :contact_email => listing[:contact_email],
-                          :phone_number => listing[:phone_number])
+                          :phone_number => listing[:phone_number], :applied => listing[:applied],
+                          :posting_url => listing[:posting_url], :company_name => listing[:company_name],
+                          :notes => listing[:notes], :submitted_resume => listing[:submitted_resume],
+                          :opportunity_ranking => listing[:opportunity_ranking], 
+                          :opportunity_description => listing[:opportunity_description],
+                          :company_summary => listing[:company_summary], :lead_source => listing[:lead_source])
     if @listing.save
       render json: { :listing => @listing }, status: :created
     else
@@ -61,8 +66,20 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-      params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :posting_url, :interview_id, :company_name, :notes)
+      params.require(:listing).permit(:posting_url, :contact_email, :phone_number,
+                                      :applied, :posting_url, :company_name, :notes,
+                                      :submitted_resume, :opportunity_ranking, :opportunity_description,
+                                      :opportunity_description, :company_summary, :lead_source, :job_title)
     end
+
+    # #:job_title => listing[:job_title], 
+    #                       :posting_url => listing[:url], :contact_email => listing[:contact_email],
+    #                       :phone_number => listing[:phone_number], :applied => listing[:applied],
+    #                       :posting_url => listing[:posting_url], :company_name => listing[:company_name],
+    #                       :notes => listing[:notes], :submitted_resume => listing[:submitted_resume],
+    #                       :opportunity_ranking => listing[:opportunity_ranking], 
+    #                       :opportunity_description => listing[:opportunity_description],
+    #                       :company_summary => listing[:company_summary], :lead_source => listing[:lead_source]
 
 end
 # create_table "listings", force: :cascade do |t|
