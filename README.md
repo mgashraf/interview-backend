@@ -2,7 +2,9 @@
 README
 ======
 Lets try and get these right this time, right Dane?!?
-!Important - Domain `https://interviewtracker-api.herokuapp.com`
+
+
+Important - Domain `https://interviewtracker-api.herokuapp.com`
 
 CREATE USER
 -----------
@@ -13,8 +15,8 @@ from
 data:
 ```
 "user": {
-  "email": "macho_man_alan_matthews@gmail.com",
-  "password": "nachooooescheese"
+  "email": "testuser@gmail.com",
+  "password": "atleast8chars"
 }
 ```
 
@@ -22,7 +24,7 @@ sample response:
 ```
 {
     "user": {
-        "email": "macho_man_alan_matthews@gmail.com",
+        "email": "testuser@gmail.com",
         "authentication_token": "GhBPRwKabKQX2wLzwU56"
     }
 }
@@ -38,8 +40,8 @@ data:
 ```
 {
   "user": {
-    "email": "macho_man_alan_matthews@gmail.com",
-    "password": "nachooooescheese"
+    "email": "testuser@gmail.com",
+    "password": "atleast8chars"
   }
 }
 ```
@@ -47,7 +49,7 @@ sample response:
 ```
 {
     "user": {
-        "email": "macho_man_alan_matthews@gmail.com",
+        "email": "testuser@gmail.com",
         "authentication_token": "GhBPRwKabKQX2wLzwU56"
     }
 }
