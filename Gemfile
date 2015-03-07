@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'paperclip'
+# Amazon S3 for file sharing
+gem 'aws-sdk'
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
