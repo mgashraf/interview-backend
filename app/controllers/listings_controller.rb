@@ -21,7 +21,6 @@ class ListingsController < ApplicationController
   def index
     @user = current_user
     @listings = set_listings
-    binding.pry
     if @listings.count > 0
       render json: { :listings => @listings }, status: :ok
     else
@@ -32,7 +31,6 @@ class ListingsController < ApplicationController
   def show
     @user = current_user
     @listing = @user.listings.find(params[:lid])
-    binding.pry
     if @listing
       render json: { :listing => @listing }, status: :ok
     else
