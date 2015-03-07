@@ -2,9 +2,7 @@
 README
 ======
 
-This shows basic authentication via devise with a json api.
-
-Following section shows basic user auth using the api.  As of right now there is no support for token revocation or token expiration.
+DOMAIN: `https://interviewtracker-api.herokuapp.com`
 
 CREATE USER
 -----------
