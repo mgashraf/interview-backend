@@ -136,3 +136,45 @@ sample response
     }
 }
 ```
+
+EDIT LISTING
+`STATUS 200 OK`
+from
+`PATCH [domain]/users/listings/[:lid]`
+
+data:
+```
+{
+    "listing": {
+        "company_id": 2,
+        "contact_id": 3,
+        "job_title": "Front End Engineer",
+        "applied": false,
+        "contact_email": "sergey@google.com",
+        "phone_number": null,
+        "email": "hr@google.com",
+        "posting_url": "http://www.google.com/jobs/job/1234"
+    }
+}
+```
+
+
+response:
+```
+{
+    "listing": {
+        "user_id": 1,
+        "id": 1,
+        "company_id": 2,
+        "contact_id": 2,
+        "job_title": "Engineer",
+        "applied": false,
+        "contact_email": "hr@facebook.com",
+        "phone_number": null,
+        "email": "hr@google.com",
+        "posting_url": "http://www.google.com/jobs/job/1234",
+        "created_at": "2015-03-07T13:54:38.501Z",
+        "updated_at": "2015-03-07T14:47:41.935Z"
+    }
+}
+```

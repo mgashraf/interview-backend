@@ -16,6 +16,13 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    @listing = @user.listings.find(params[:lid])
+    if @listing.update( listing_params )
+      render json: { :listing => @listing }, status: :ok
+    else
+      render json: { :error => "There was an error"}, status: :bad_request
+    end
   end
 
   def index
@@ -49,14 +56,9 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-      params.require(:listing).permit(:name, :age)
+      params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :email, :posting_url, :contact_id, :company_id)
     end
 
-    listings {
-      name: "dlyan",
-      age: 34,
-      pets: "a duck"
-    }
 
 end
 
