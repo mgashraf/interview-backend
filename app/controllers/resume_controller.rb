@@ -1,7 +1,13 @@
 class ResumeController < ApplicationController
+  before_action :authenticate_user_from_token!
 
   def create
-    @resume = User.create( params[:resume] )
+    @resume = current_user.resumes.create(resume_params)
+    render json: {message: "It worked yo!"}, status: :created
   end
 
+  private
+  def resume_params
+    params.require(:resume).permit(:name, :document)
+  end
 end
