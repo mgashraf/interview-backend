@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307054145) do
+ActiveRecord::Schema.define(version: 20150307061636) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -53,9 +53,13 @@ ActiveRecord::Schema.define(version: 20150307054145) do
 
   create_table "resumes", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "name"
+    t.string   "file_name_file_name"
+    t.string   "file_name_content_type"
+    t.integer  "file_name_file_size"
+    t.datetime "file_name_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
