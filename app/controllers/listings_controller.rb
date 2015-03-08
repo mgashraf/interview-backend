@@ -4,12 +4,16 @@ class ListingsController < ApplicationController
   before_action :set_user, :set_listings
   
   def create
-    listing = JSON.parse(params[:listing])
-    @listing = @user.listings.new(:user_id => @user.id, :job_title => listing[:title], 
-                          :posting_url => listing[:url], :email => listing[:email],
-                          :contact_email => listing[:contact_email], :phone_number => listing[:phone_number])
-    if @listing.save
-      render json: { :listing => @listing }, status: :created
+    if params[:listing]
+      listing = params[:listing]
+      @user = current_user
+      @listing = @user.listings.create(:user_id => @user.id)
+      @listing.update(listing_params)
+      if @listing.save
+        render json: { :listing => @listing }, status: :created
+      else
+        render json: { :error => "Problem creating listing"}, status: :bad_request
+      end
     else
       render json: { :error => "Problem creating listing"}, status: :bad_request
     end
@@ -35,7 +39,7 @@ class ListingsController < ApplicationController
     end
   end
 
-  def show
+  def show   
     @user = current_user
     @listing = @user.listings.find(params[:lid])
     if @listing
@@ -45,10 +49,24 @@ class ListingsController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @listing = @user.listings.find(params[:lid])
+    if @listing.destroy
+     render json: { :message => "Listing successfully deleted" }, status: :ok
+    else
+      render json: { :error => "Listing was not deleted" }, status: :not_found
+    end 
+  end
+
   private
 
     def set_user
       @user = current_user
+    end
+
+    def set_listing
+      @listing = Listing.find(params[:lid])
     end
 
     def set_listings
@@ -56,14 +74,15 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-      params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :email, :posting_url, :contact_id, :company_id)
+      params.require(:listing).permit(:posting_url, :contact_email, :phone_number,
+                                      :applied, :posting_url, :company_name, :notes,
+                                      :submitted_resume, :opportunity_ranking, :opportunity_description,
+                                      :opportunity_description, :company_summary, :lead_source, :job_title)
+
     end
-
 end
-
-# SCHEMA THINGS UPDATE AS NEEDED
+# create_table "listings", force: :cascade do |t|
 # t.integer  "user_id"
-# t.integer  "company_id"
 # t.integer  "contact_id"
 # t.string   "job_title"
 # t.boolean  "applied",       default: false
@@ -72,4 +91,7 @@ end
 # t.string   "email"
 # t.string   "posting_url"
 # t.datetime "created_at",                    null: false
-# t.datetime "updated_at",
+# t.datetime "updated_at",                    null: false
+# t.integer  "interview_id"
+# t.string   "company_name"
+# t.text     "notes"

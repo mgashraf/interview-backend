@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :resumes
-  has_many :interviews
   has_many :listings
+  has_many :interviews, through: :listings
+  
 
   before_save :ensure_authentication_token
 

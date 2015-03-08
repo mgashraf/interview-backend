@@ -1,4 +1,6 @@
 class SessionsController < Devise::SessionsController
+  skip_before_action :require_no_authentication, :only => [:create]
+
   def create
     self.resource = warden.authenticate(auth_options)
     if self.resource 
