@@ -6,8 +6,8 @@ get users/:id => working
 ```
 {
     "user": {
-        "email": "testuser@gmail.com",
-        "authentication_token": "8Nyw4Ln_Ea9_r-f9rhxY"
+        "email": "t@gmail.com",
+        "authentication_token": "-EMGwVvvptqSUzhsc9dk"
     }
 }
 ```
@@ -21,3 +21,16 @@ heroku
     }
 }
 ```
+
+PROFILE
+-------
+name
+age
+experience
+skills
+education
+
+PRE CHECKLIST
+-------------
+online research (bool)
+interviewers (string)

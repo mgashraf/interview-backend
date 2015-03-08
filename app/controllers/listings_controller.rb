@@ -4,13 +4,16 @@ class ListingsController < ApplicationController
   before_action :set_user, :set_listings
   
   def create
-    listing = params[:listing]
-    # binding.pry
-    @listing = @user.listings.new(:user_id => @user.id, :job_title => listing[:job_title], 
-                          :posting_url => listing[:url], :contact_email => listing[:contact_email],
-                          :phone_number => listing[:phone_number])
-    if @listing.save
-      render json: { :listing => @listing }, status: :created
+    if params[:listing]
+      listing = params[:listing]
+      @user = current_user
+      @listing = @user.listings.create(:user_id => @user.id)
+      @listing.update(listing_params)
+      if @listing.save
+        render json: { :listing => @listing }, status: :created
+      else
+        render json: { :error => "Problem creating listing"}, status: :bad_request
+      end
     else
       render json: { :error => "Problem creating listing"}, status: :bad_request
     end
@@ -46,6 +49,16 @@ class ListingsController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @listing = @user.listings.find(params[:lid])
+    if @listing.destroy
+     render json: { :message => "Listing successfully deleted" }, status: :ok
+    else
+      render json: { :error => "Listing was not deleted" }, status: :not_found
+    end 
+  end
+
   private
 
     def set_user
@@ -61,9 +74,12 @@ class ListingsController < ApplicationController
     end
 
     def listing_params
-      params.require(:listing).permit(:job_title, :applied, :contact_email, :phone_number, :posting_url, :interview_id, :company_name, :notes)
-    end
+      params.require(:listing).permit(:posting_url, :contact_email, :phone_number,
+                                      :applied, :posting_url, :company_name, :notes,
+                                      :submitted_resume, :opportunity_ranking, :opportunity_description,
+                                      :opportunity_description, :company_summary, :lead_source, :job_title)
 
+    end
 end
 # create_table "listings", force: :cascade do |t|
 # t.integer  "user_id"

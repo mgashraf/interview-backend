@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  skip_before_action :require_no_authentication, :only => [:create]
+
   def create 
     @user = User.new(user_params)
     if @user.save

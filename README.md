@@ -255,11 +255,27 @@ response
 }
 ```
 
+DELETE A LISTING
+----------------
+`STATUS 200 OK`
+from
+`DELETE [domain]/users/listings/[:lid]`
+
+data:
+Provide `auth_token` in header
+
+sample response
+```
+{
+    "message": "Listing successfully deleted"
+}
+```
+
 POST AN INTERVIEW
 -----------------
 `STATUS 201 CREATED`
 from
-`POST [domain]/users/listings`
+`POST [domain]/users/listings/[:lid]/intervews`
 
 data:
 ```
@@ -298,6 +314,66 @@ response:
         "opportunity_description": "Great small hot new social web startup",
         "company_summary": "the owner mark seems like a nice guy, they like likes.",
         "lead_source": "Was referred by CTO, forgot his name :("
+    }
+}
+```
+
+GET USER PROFILE
+-----------------
+`STATUS 200 OK`
+from
+`GET [domain]/user`
+
+data:
+just `auth_token` in header
+
+response:
+```
+{
+    "user": {
+        "id": 2,
+        "email": "t@gmail.com",
+        "full_name": "dylan dechant",
+        "age": 28,
+        "experience": "things",
+        "skills": "sleeeping",
+        "education": "school"
+    }
+}
+```
+
+
+EDIT USER PROFILE
+-----------------
+`STATUS 200 OK`
+from
+`PATCH [domain]/user`
+
+data:
+`auth_token` in header, body:
+```
+{
+    "user": {
+        "full_name": "dylan dechant",
+        "age": 28,
+        "experience": "things",
+        "skills": "sleeeping",
+        "education": "school"
+    }
+}
+```
+
+response:
+```
+{
+    "user": {
+        "id": 2,
+        "email": "t@gmail.com",
+        "full_name": "dylan dechant",
+        "age": 28,
+        "experience": "things",
+        "skills": "sleeeping",
+        "education": "school"
     }
 }
 ```

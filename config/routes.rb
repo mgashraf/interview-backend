@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   patch 'users/listings/:lid', to: 'listings#edit'
   get 'users/listings', to: 'listings#index'
   get 'users/listings/:lid', to: 'listings#show'
-  delete 'users/listings/', to: 'listings#destroy'
+  delete 'users/listings/:lid', to: 'listings#destroy'
 
   # ROUTES FOR RESUMES
   post 'users/resumes', to: 'resumes#create'
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   # ADD LONE ROUTE FOR USERS :(
   get '/user', to: 'users#show'
+  patch '/user', to: 'users#edit'
 
   #get ':username', to: 'users#show', as: :user
   
