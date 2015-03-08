@@ -4,7 +4,6 @@ class InterviewsController < ApplicationController
   def create
     @listing = set_listing
     @user = set_user
-    binding.pry
     @interview = @user.interviews.new(:listing_id => params[:lid],
                                       :position_title => @listing.job_title,
                                       :follow_up_email => params[:interview][:follow_up_email],

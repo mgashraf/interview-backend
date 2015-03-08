@@ -4,19 +4,16 @@ class ListingsController < ApplicationController
   before_action :set_user, :set_listings
   
   def create
-    listing = params[:listing]
-    @user = current_user
-    # binding.pry
-    @listing = @user.listings.new(:user_id => @user.id, :job_title => listing[:job_title], 
-                          :posting_url => listing[:url], :contact_email => listing[:contact_email],
-                          :phone_number => listing[:phone_number], :applied => listing[:applied],
-                          :posting_url => listing[:posting_url], :company_name => listing[:company_name],
-                          :notes => listing[:notes], :submitted_resume => listing[:submitted_resume],
-                          :opportunity_ranking => listing[:opportunity_ranking], 
-                          :opportunity_description => listing[:opportunity_description],
-                          :company_summary => listing[:company_summary], :lead_source => listing[:lead_source])
-    if @listing.save
-      render json: { :listing => @listing }, status: :created
+    if params[:listing]
+      listing = params[:listing]
+      @user = current_user
+      @listing = @user.listings.create(:user_id => @user.id)
+      @listing.update(listing_params)
+      if @listing.save
+        render json: { :listing => @listing }, status: :created
+      else
+        render json: { :error => "Problem creating listing"}, status: :bad_request
+      end
     else
       render json: { :error => "Problem creating listing"}, status: :bad_request
     end
@@ -71,17 +68,8 @@ class ListingsController < ApplicationController
                                       :applied, :posting_url, :company_name, :notes,
                                       :submitted_resume, :opportunity_ranking, :opportunity_description,
                                       :opportunity_description, :company_summary, :lead_source, :job_title)
+
     end
-
-    # #:job_title => listing[:job_title], 
-    #                       :posting_url => listing[:url], :contact_email => listing[:contact_email],
-    #                       :phone_number => listing[:phone_number], :applied => listing[:applied],
-    #                       :posting_url => listing[:posting_url], :company_name => listing[:company_name],
-    #                       :notes => listing[:notes], :submitted_resume => listing[:submitted_resume],
-    #                       :opportunity_ranking => listing[:opportunity_ranking], 
-    #                       :opportunity_description => listing[:opportunity_description],
-    #                       :company_summary => listing[:company_summary], :lead_source => listing[:lead_source]
-
 end
 # create_table "listings", force: :cascade do |t|
 # t.integer  "user_id"

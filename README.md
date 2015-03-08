@@ -329,11 +329,9 @@ response:
 
 EDIT USER PROFILE
 -----------------
-GET USER PROFILE
------------------
 `STATUS 200 OK`
 from
-`GET [domain]/user`
+`PATCH [domain]/user`
 
 data:
 `auth_token` in header, body:
