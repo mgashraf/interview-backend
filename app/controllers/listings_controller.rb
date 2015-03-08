@@ -49,6 +49,16 @@ class ListingsController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    @listing = @user.listings.find(params[:lid])
+    if @listing.destroy
+     render json: { :message => "Listing successfully deleted" }, status: :ok
+    else
+      render json: { :error => "Listing was not deleted" }, status: :not_found
+    end 
+  end
+
   private
 
     def set_user

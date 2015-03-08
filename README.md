@@ -255,6 +255,22 @@ response
 }
 ```
 
+DELETE A LISTING
+----------------
+`STATUS 200 OK`
+from
+`DELETE [domain]/users/listings/[:lid]`
+
+data:
+Provide `auth_token` in header
+
+sample response
+```
+{
+    "message": "Listing successfully deleted"
+}
+```
+
 POST AN INTERVIEW
 -----------------
 `STATUS 201 CREATED`
