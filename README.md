@@ -377,3 +377,115 @@ response:
     }
 }
 ```
+
+GET PRE INTERVIEW CHECKLIST
+----------------------------
+`STATUS 200 OK`
+from
+`GET [domain]/users/listings/[:lid]/preinterview`
+
+data: `auth_token` in header
+```
+{
+    "preinterview": {
+        "research": null,
+        "interviewer": null,
+        "location": null,
+        "businesscards": null,
+        "keyfindings": null,
+        "interviewtips": null
+    }
+}
+```
+
+
+GET POST INTERVIEW CHECKLIST
+----------------------------
+`STATUS 200 OK`
+from
+`GET [domain]/users/listings/[:lid]/postinterview`
+
+data: `auth_token` in header
+```
+{
+    "postinterview": {
+        "takeaway": null,
+        "conversation": null,
+        "whodidyoumeet": null,
+        "status": null,
+        "contactemail": null,
+        "recruiteremail": null,
+        "thankyounote": "suckkaaaa"
+    }
+}
+```
+
+EDIT PRE INTERVIEW CHECKLIST
+----------------------------
+`STATUS 200 OK`
+from
+`PATCH [domain]/users/listings/[:lid]/preinterview`
+
+data: `auth_token` in header and any of these fields
+```
+{
+    "preinterview": {
+        "research": "your value",
+        "interviewer": "your value",
+        "location": "your value",
+        "businesscards": "your value",
+        "keyfindings": "your value",
+        "interviewtips": "your value"
+    }
+}
+```
+
+response:
+```
+{
+    "preinterview": {
+        "research": "your value",
+        "interviewer": "your value",
+        "location": "your value",
+        "businesscards": "your value",
+        "keyfindings": "your value",
+        "interviewtips": "your value"
+    }
+}
+```
+
+EDIT POST INTERVIEW CHECKLIST
+----------------------------
+`STATUS 200 OK`
+from
+`PATCH [domain]/users/listings/[:lid]/postinterview`
+
+data: `auth_token` in header and any of these fields
+```
+{
+    "postinterview": {
+        "takeaway": "your value",
+        "conversation": "your value",
+        "whodidyoumeet": "your value",
+        "status": "your value",
+        "contactemail": "your value",
+        "recruiteremail": "your value",
+        "thankyounote": "your value"
+    }
+}
+```
+
+response:
+```
+{
+    "postinterview": {
+        "takeaway": "your value",
+        "conversation": "your value",
+        "whodidyoumeet": "your value",
+        "status": "your value",
+        "contactemail": "your value",
+        "recruiteremail": "your value",
+        "thankyounote": "your value"
+    }
+}
+```

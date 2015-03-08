@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308014608) do
+ActiveRecord::Schema.define(version: 20150308143512) do
+
+  create_table "checklists", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.string   "takeaway"
+    t.text     "conversation"
+    t.text     "whodidyoumeet"
+    t.string   "status"
+    t.string   "contactemail"
+    t.string   "recruiteremail"
+    t.string   "thankyounote"
+    t.string   "research"
+    t.string   "interviewer"
+    t.string   "location"
+    t.string   "businesscards"
+    t.string   "keyfindings"
+    t.string   "interviewtips"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -59,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150308014608) do
     t.text     "opportunity_description"
     t.text     "company_summary"
     t.string   "lead_source"
+    t.integer  "checklist_id"
   end
 
   create_table "resumes", force: :cascade do |t|

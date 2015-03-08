@@ -26,6 +26,12 @@ Rails.application.routes.draw do
   get 'users/resumes/:rid', to: 'resumes#show'
   delete 'users/resumes/:rid', to: 'resumes#destroy'
 
+  # CHECKLIST ROUTES
+  get 'users/listings/:lid/preinterview', to: 'checklists#show_pre'
+  get 'users/listings/:lid/postinterview', to: 'checklists#show_post'
+  patch 'users/listings/:lid/preinterview', to: 'checklists#edit_pre'
+  patch 'users/listings/:lid/postinterview', to: 'checklists#edit_post'
+
   # ADD LONE ROUTE FOR USERS :(
   get '/user', to: 'users#show'
   patch '/user', to: 'users#edit'

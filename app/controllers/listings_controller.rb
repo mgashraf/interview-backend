@@ -7,13 +7,15 @@ class ListingsController < ApplicationController
     if params[:listing]
       listing = params[:listing]
       @user = current_user
-      @listing = @user.listings.create(:user_id => @user.id)
+      @checklist = Checklist.create
+      @listing = @user.listings.create(:user_id => @user.id, :checklist_id => @checklist.id)
       @listing.update(listing_params)
       if @listing.save
         render json: { :listing => @listing }, status: :created
       else
         render json: { :error => "Problem creating listing"}, status: :bad_request
       end
+      @checklist.update(:listing_id => @listing.id)
     else
       render json: { :error => "Problem creating listing"}, status: :bad_request
     end
