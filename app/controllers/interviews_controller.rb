@@ -3,13 +3,13 @@ class InterviewsController < ApplicationController
   
   
   def create
-    setup_date = Interview.interview_date(params[:interview_time])
+  #  setup_date = Interview.interview_date(params[:interview_time])
     @listing = set_listing
     @user = set_user
     @interview = @user.interviews.new(:listing_id => params[:lid],
                                       :position_title => @listing.job_title,
                                       :follow_up_email => params[:interviews][:follow_up_email],
-                                      :interview_time => setup_date(params[:interviews][:interview_time]),
+  #                                    :interview_time => setup_date(params[:interviews][:interview_time]),
                                       :interviewtype => params[:interviews][:interviewtype],
                                       :notes => params[:interviews][:notes],
                                       :interviewed => params[:interviews][:interviewed],
