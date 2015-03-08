@@ -7,7 +7,8 @@ class ListingsController < ApplicationController
     if params[:listing]
       listing = params[:listing]
       @user = current_user
-      @checklist = Checklist.create
+      @checklist = Checklist.new
+      @checklist.save
       @listing = @user.listings.create(:user_id => @user.id, :checklist_id => @checklist.id)
       @listing.update(listing_params)
       if @listing.save
