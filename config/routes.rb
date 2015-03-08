@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   # ADD LONE ROUTE FOR USERS :(
   get '/user', to: 'users#show'
+  patch '/user', to: 'users#edit'
 
   #get ':username', to: 'users#show', as: :user
   

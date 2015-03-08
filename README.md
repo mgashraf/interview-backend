@@ -301,3 +301,65 @@ response:
     }
 }
 ```
+
+GET USER PROFILE
+-----------------
+`STATUS 200 OK`
+from
+`GET [domain]/user`
+
+data:
+just `auth_token` in header
+
+response:
+```
+{
+    "user": {
+        "id": 2,
+        "email": "t@gmail.com",
+        "full_name": "dylan dechant",
+        "age": 28,
+        "experience": "things",
+        "skills": "sleeeping",
+        "education": "school"
+    }
+}
+```
+
+
+EDIT USER PROFILE
+-----------------
+GET USER PROFILE
+-----------------
+`STATUS 200 OK`
+from
+`GET [domain]/user`
+
+data:
+`auth_token` in header, body:
+```
+{
+    "user": {
+        "full_name": "dylan dechant",
+        "age": 28,
+        "experience": "things",
+        "skills": "sleeeping",
+        "education": "school"
+    }
+}
+```
+
+response:
+```
+{
+    "user": {
+        "id": 2,
+        "email": "t@gmail.com",
+        "full_name": "dylan dechant",
+        "age": 28,
+        "experience": "things",
+        "skills": "sleeeping",
+        "education": "school"
+    }
+}
+```

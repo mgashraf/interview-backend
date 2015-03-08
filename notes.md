@@ -21,3 +21,16 @@ heroku
     }
 }
 ```
+
+PROFILE
+-------
+name
+age
+experience
+skills
+education
+
+PRE CHECKLIST
+-------------
+online research (bool)
+interviewers (string)
