@@ -32,9 +32,16 @@ Rails.application.routes.draw do
   patch 'users/listings/:lid/preinterview', to: 'checklists#edit_pre'
   patch 'users/listings/:lid/postinterview', to: 'checklists#edit_post'
 
+  # RESUME ROUTES
+  post 'users/resume', to: 'resumes#create'
+  get 'users/resume/:rid', to: 'resumes#show'
+  delete 'users/resume/:rid', to: 'resumes#destroy'
+  get 'users/resume', to: 'resumes#index'
+
   # ADD LONE ROUTE FOR USERS :(
   get '/user', to: 'users#show'
   patch '/user', to: 'users#edit'
+
 
   #get ':username', to: 'users#show', as: :user
   

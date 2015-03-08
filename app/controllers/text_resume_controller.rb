@@ -1,0 +1,2 @@
+class TextResumeController < ApplicationController
+end
